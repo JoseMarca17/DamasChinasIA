@@ -1,0 +1,18 @@
+{
+  "algorithm": "greedy",
+  "title": "Heurística voraz: elegir una jugada inmediata",
+  "description": "ROJO (MAX) compara tres movimientos legales del ejemplo. Cada hijo se puntúa con la heurística elegida, sin simular respuestas del rival.",
+  "position_note": "Se muestran algunas jugadas legales para mantener pequeño el ejemplo. Los valores de las hojas se calculan con la función de evaluación de Python.",
+  "root_player": "MAX",
+  "board_state": {
+    "red": [[3, 9], [3, 11], [3, 13], [3, 15], [4, 8], [4, 10], [4, 12], [4, 14], [5, 9], [6, 10]],
+    "blue": [[13, 9], [13, 11], [13, 13], [13, 15], [12, 10], [12, 12], [12, 14], [11, 9], [10, 10], [9, 11]]
+  },
+  "children": [
+    { "id": "jugada_a", "move": "F4-C1 a F3-C1", "mover": "ROJO", "piece_move": { "from": [3, 9], "to": [2, 10] }, "value": -4 },
+    { "id": "jugada_b", "move": "F4-C1 a F6-C4", "mover": "ROJO", "piece_move": { "from": [3, 9], "to": [5, 7] }, "value": -1 },
+    { "id": "jugada_c", "move": "F4-C1 a F6-C6", "mover": "ROJO", "piece_move": { "from": [3, 9], "to": [5, 11] }, "value": -1 }
+  ],
+  "expected_value": -1,
+  "best_move": "F4-C1 a F6-C4"
+}

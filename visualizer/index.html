@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Damas Chinas | Algoritmos de búsqueda</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="encabezado">
+    <div>
+      <p class="subtitulo">Demostración de Inteligencia Artificial</p>
+      <h1>Damas Chinas: ¿cómo elige una IA?</h1>
+    </div>
+    <div class="selectores">
+      <div class="selector">
+        <label for="algoritmo">Algoritmo de búsqueda</label>
+        <select id="algoritmo">
+          <option value="greedy">Heurística voraz</option>
+          <option value="minimax">Minimax</option>
+          <option value="alphabeta">Alfa-Beta</option>
+        </select>
+      </div>
+      <div class="selector">
+        <label for="heuristica">Evaluación</label>
+        <select id="heuristica">
+          <option value="E1">E1 · Progreso</option>
+          <option value="E2">E2 · Eje central</option>
+          <option value="E3">E3 · Ficha rezagada</option>
+        </select>
+      </div>
+    </div>
+  </header>
+
+  <p id="errorCarga" class="error-carga" role="alert" hidden></p>
+
+  <nav class="controles" aria-label="Controles del ejemplo">
+    <button id="anterior" type="button">← Anterior</button>
+    <button id="siguiente" class="principal" type="button">Siguiente →</button>
+    <button id="reiniciar" type="button">Reiniciar</button>
+    <button id="reproducir" type="button">▶ Reproducir</button>
+    <span id="contadorPaso" class="contador">Paso 0</span>
+  </nav>
+
+  <main class="espacio-trabajo">
+    <section class="tarjeta tablero-tarjeta">
+      <h2>Tablero del ejemplo</h2>
+      <p class="ayuda">Posición del ejemplo · una secuencia a la vez</p>
+      <svg id="tablero" viewBox="-160 -175 320 350" role="img" aria-label="Tablero de Damas Chinas"></svg>
+      <p id="movimientoActual" class="movimiento-actual">Avanza para ver los movimientos de las piezas.</p>
+      <p class="nota" id="notaTablero"></p>
+    </section>
+
+    <section class="tarjeta arbol-tarjeta">
+      <div class="titulo-arbol">
+        <div>
+          <h2 id="tituloEjemplo">Cargando ejemplo…</h2>
+          <p class="ayuda">MAX (ROJO) busca el mayor valor · MIN (AZUL), el menor</p>
+        </div>
+        <div class="leyenda"><span class="rojo"></span>MAX <span class="azul"></span>MIN <span class="hoja"></span>Evaluación</div>
+      </div>
+      <div class="paso-actual">
+        <strong id="tituloPaso">Preparando el árbol…</strong>
+        <p id="explicacionPaso">Avanza para ver qué hace el algoritmo.</p>
+      </div>
+      <div class="estadisticas">
+        <span>Nodos: <strong id="nodosVisitados">0</strong></span>
+        <span>Hojas evaluadas: <strong id="hojasEvaluadas">0</strong></span>
+        <span id="estadisticaPodas" hidden>Podas: <strong id="podas">0</strong></span>
+        <span>Mejor jugada: <strong id="mejorJugada">—</strong></span>
+        <span>Valor: <strong id="valorRaiz">—</strong></span>
+      </div>
+      <div class="contenedor-arbol">
+      <svg id="arbol" viewBox="0 0 850 500" role="img" aria-label="Árbol de búsqueda"></svg>
+      </div>
+    </section>
+
+    <aside class="tarjeta codigo-tarjeta">
+      <h2>Cómo decide la IA</h2>
+      <p id="formulaHeuristica" class="formula-heuristica"></p>
+      <p id="resumenAlgoritmo" class="ayuda"></p>
+      <ol id="pseudocodigo" class="pseudocodigo"></ol>
+      <p id="notaAlgoritmo" class="nota-algoritmo"></p>
+    </aside>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

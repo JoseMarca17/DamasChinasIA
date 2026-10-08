@@ -1,0 +1,77 @@
+{
+  "algorithm": "alphabeta",
+  "title": "Alfa-Beta: cortar una rama sin cambiar la decisión",
+  "description": "Dentro de la rama de AZUL, beta fija un límite. Una respuesta de ROJO alcanza alpha igual a beta, así que Alfa-Beta omite la respuesta restante de ese nodo.",
+  "position_note": "El árbol contiene algunas secuencias legales para explicar el corte. Las hojas usan la misma E1, E2 o E3 elegida en el selector.",
+  "root_player": "MAX",
+  "board_state": {
+    "red": [[3, 9], [3, 11], [3, 13], [3, 15], [4, 8], [4, 10], [4, 12], [4, 14], [5, 9], [6, 10]],
+    "blue": [[13, 9], [13, 11], [13, 13], [13, 15], [12, 10], [12, 12], [12, 14], [11, 9], [10, 10], [9, 11]]
+  },
+  "children": [
+    {
+      "id": "move_b",
+      "move": "F4-C1 a F6-C4",
+      "mover": "ROJO",
+      "piece_move": { "from": [3, 9], "to": [5, 7] },
+      "player": "MIN",
+      "children": [
+        {
+          "id": "b2",
+          "move": "F10-C5 a F9-C5",
+          "mover": "AZUL",
+          "piece_move": { "from": [9, 11], "to": [8, 12] },
+          "player": "MAX",
+          "children": [
+            { "id": "b2a", "move": "F4-C2 a F3-C1", "mover": "ROJO", "piece_move": { "from": [3, 11], "to": [2, 10] }, "value": -3 },
+            { "id": "b2b", "move": "F4-C2 a F3-C2", "mover": "ROJO", "piece_move": { "from": [3, 11], "to": [2, 12] }, "value": -3 }
+          ]
+        },
+        {
+          "id": "b1",
+          "move": "F10-C5 a F9-C4",
+          "mover": "AZUL",
+          "piece_move": { "from": [9, 11], "to": [8, 10] },
+          "player": "MAX",
+          "children": [
+            { "id": "b1a", "move": "F4-C2 a F3-C1", "mover": "ROJO", "piece_move": { "from": [3, 11], "to": [2, 10] }, "value": -3 },
+            { "id": "b1b", "move": "F4-C2 a F3-C2", "mover": "ROJO", "piece_move": { "from": [3, 11], "to": [2, 12] }, "value": -3 }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "move_a",
+      "move": "F4-C1 a F3-C1",
+      "mover": "ROJO",
+      "piece_move": { "from": [3, 9], "to": [2, 10] },
+      "player": "MIN",
+      "children": [
+        {
+          "id": "a2",
+          "move": "F10-C5 a F9-C5",
+          "mover": "AZUL",
+          "piece_move": { "from": [9, 11], "to": [8, 12] },
+          "player": "MAX",
+          "children": [
+            { "id": "a2a", "move": "F3-C1 a F2-C1", "mover": "ROJO", "piece_move": { "from": [2, 10], "to": [1, 11] }, "value": -6 },
+            { "id": "a2b", "move": "F3-C1 a F3-C2", "mover": "ROJO", "piece_move": { "from": [2, 10], "to": [2, 12] }, "value": -5 }
+          ]
+        },
+        {
+          "id": "a1",
+          "move": "F10-C5 a F9-C4",
+          "mover": "AZUL",
+          "piece_move": { "from": [9, 11], "to": [8, 10] },
+          "player": "MAX",
+          "children": [
+            { "id": "a1a", "move": "F3-C1 a F2-C1", "mover": "ROJO", "piece_move": { "from": [2, 10], "to": [1, 11] }, "value": -6 },
+            { "id": "a1b", "move": "F3-C1 a F3-C2", "mover": "ROJO", "piece_move": { "from": [2, 10], "to": [2, 12] }, "value": -5 }
+          ]
+        }
+      ]
+    }
+  ],
+  "expected_value": -3,
+  "best_move": "F4-C1 a F6-C4"
+}
